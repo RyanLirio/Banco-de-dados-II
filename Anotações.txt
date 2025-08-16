@@ -1,0 +1,20 @@
+O - Object 
+R - Relational
+M - Maping
+
+E/R - Entidade Relacionamento
+
+Entidades - Representam o modelo de Domínio em forma de tabelas
+Exemplos desenvolvidos em aula: Veterinária, floricultura...
+
+Entidades -> Tabelas 		-> Atributos
+Cliente   -> Tabela cliente 	-> Nome, Idade, RG...
+
+Cardinalidades: 1:1, 1:N, N:1
+
+S.G.B.D -> Sistema Gerenciador de Banco de dados -> MySQL
+Client Server 
+
+Sevidor local: (LocalDb)\MSSQLLocalDB
+
+dotnet ef migrations add Initial
