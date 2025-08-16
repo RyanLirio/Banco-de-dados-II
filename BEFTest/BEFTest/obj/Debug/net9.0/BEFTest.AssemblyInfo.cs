@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("BEFTest")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5cad98ec85945782c67303c2a8d2d3affd6e91fd")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+55bb823e7fc5ffeb62a23fa40ceec5897edddcac")]
 [assembly: System.Reflection.AssemblyProductAttribute("BEFTest")]
 [assembly: System.Reflection.AssemblyTitleAttribute("BEFTest")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
