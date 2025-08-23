@@ -5,11 +5,11 @@ namespace Floricultura.Data
 {
     public static class DbInitializer
     {
-        public async static void Initialize(PlantsContext context)
+        public static void Initialize(PlantsContext context)
         {
-            await context.Database.EnsureCreatedAsync();
+            context.Database.EnsureCreated();
 
-            if (await context.Database.EnsureDeletedAsync())
+            if (context.Plants.Any())
                 return;
 
             var plants = new Plant[]
@@ -19,7 +19,7 @@ namespace Floricultura.Data
 
             foreach (Plant p in plants) 
             { 
-                await context.Plants.AddAsync(p); 
+                context.Plants.Add(p); 
             }
             context.SaveChanges();
         }
