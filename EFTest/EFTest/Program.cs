@@ -1,8 +1,10 @@
 using EFTest.Data;
+using EFTest.Interfaces;
+using EFTest.Repositories;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
-
+    
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
@@ -11,6 +13,8 @@ builder.Services.AddDbContext<SchoolContext>(options =>
         builder.Configuration.GetConnectionString("DefaultConnection")
     )
 );
+
+builder.Services.AddScoped<ICourseRepository, CourseRepository>();
 
 var app = builder.Build();
 

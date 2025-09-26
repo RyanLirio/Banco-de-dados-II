@@ -1,4 +1,3 @@
-using System.Diagnostics;
 using EFTest.Data;
 using EFTest.Models;
 using Microsoft.AspNetCore.Mvc;
@@ -7,12 +6,10 @@ namespace EFTest.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger; //Interface pra ter controle de logs
         private readonly SchoolContext _context;
 
-        public HomeController(ILogger<HomeController> logger, SchoolContext context)
+        public HomeController(SchoolContext context)
         {
-            _logger = logger;
             _context = context;
         }
 
@@ -21,15 +18,58 @@ namespace EFTest.Controllers
             return View(_context.Students.ToList());
         }
 
-        public IActionResult Privacy()
+        [HttpGet]
+        public IActionResult Create()
         {
             return View();
         }
 
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Create(Student student)
         {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+            if (ModelState.IsValid)
+            {
+                _context.Students.Add(student);
+                _context.SaveChanges();
+                return RedirectToAction(nameof(Index));
+            }
+            return View(student);
+        }
+
+        [HttpGet]
+        public IActionResult Update(int id)
+        {
+            var student = _context.Students.Find(id);
+            if (student == null)
+                return NotFound();
+            return View(student);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Update(Student student)
+        {
+            if (ModelState.IsValid)
+            {
+                _context.Students.Update(student);
+                _context.SaveChanges();
+                return RedirectToAction(nameof(Index));
+            }
+            return View(student);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Delete(int id)
+        {
+            var student = _context.Students.Find(id);
+            if (student != null)
+            {
+                _context.Students.Remove(student);
+                _context.SaveChanges();
+            }
+            return RedirectToAction(nameof(Index));
         }
     }
 }
