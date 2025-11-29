@@ -33,5 +33,5 @@ Client Server
 
 
 
-**POCO -> Classe básica que permite ligar banco a aplicação**
+**POCO ->** Classe básica que permite ligar banco a aplicação
 

@@ -34,7 +34,10 @@ namespace Aula02.Repository
 
         public async Task<List<Student>> GetAll()
         {
-            var data = await _context.Students.ToListAsync();
+            var data = await _context.Students.Include(sc => sc
+                .StudentCourses!)
+                .ThenInclude(sc => sc.Course)
+                .ToListAsync();
             return data;
         }
 

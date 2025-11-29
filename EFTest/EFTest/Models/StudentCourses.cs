@@ -12,10 +12,10 @@ namespace EFTest.Models
         [ForeignKey(nameof(StudentId))]
         public Student? Student { get; set; }
 
-
         public int CourseId { get; set; }
 
         [ForeignKey(nameof(CourseId))]
         public Course? Course { get; set; }
+        
     }
 }

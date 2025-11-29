@@ -18,3 +18,5 @@ Client Server
 Sevidor local: (LocalDb)\MSSQLLocalDB
 
 dotnet ef migrations add Initial
+
+dotnet ef database update

@@ -8,5 +8,7 @@ namespace EFTest.Models
         public string? FirstMidName { get; set; }
         public string? LastName { get; set; }
         public DateTime EnrollmentDate { get; set; }
+
+        public List<StudentCourses>? StudentCourses { get; set; }
     }
 }
